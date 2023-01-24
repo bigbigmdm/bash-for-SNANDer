@@ -1,4 +1,5 @@
 # bash-for-SNANDer
 A bash script to run the SNANDer programmer.
 
-![Running the script](https://raw.githubusercontent.com/bigbigmdm/bash-for-SNANDer/main/snander_sh.mp4)
+https://user-images.githubusercontent.com/75389103/214265259-6a962bdd-f44c-498f-893b-79bfdef0eafd.mp4
+
