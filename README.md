@@ -1,2 +1,3 @@
 # bash-for-SNANDer
-The bash script for executing the SNANDer programmer.
+A bash script to run the SNANDer programmer.
+
