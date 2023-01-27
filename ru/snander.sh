@@ -43,7 +43,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
  FALSE "Стереть" )
      if [[ "$action_type" == "Считать" ]]
      then
-     zenity --warning \
+     zenity --warning --width=300 \
 --text="Выберите каталог для сохранения файла"
      filepath=$(zenity --file-selection --directory)
      filename=$(zenity --entry \
@@ -51,10 +51,18 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
 --text="Имя файла для сохранения:" \
 --entry-text "eeprom.bin")
         if [ -n "$eeprom_model" ]
-        then
-        SNANDer -E$eeprom_model -r $filepath/$filename
+        then        
+        SNANDer -E$eeprom_model -r $filepath/$filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Считывание" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -r $filepath/$filename
+        SNANDer -r $filepath/$filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Считывание" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
      if [[ "$action_type" == "Записать" ]]
@@ -64,25 +72,41 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
      filename=$(zenity --file-selection)     
         if [ -n "$eeprom_model" ]
         then
-        SNANDer -E$eeprom_model -w $filename
+        SNANDer -E$eeprom_model -w $filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Запись" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -w $filename
+        SNANDer -w $filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Запись" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
      if [[ "$action_type" == "Стереть" ]]
      then   
         if [ -n "$eeprom_model" ]
         then
-        SNANDer -E$eeprom_model -e
+        SNANDer -E$eeprom_model -e | tee >(zenity --width=200 --height=100 \
+  				    --title="Стирание" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -e
+        SNANDer -e | tee >(zenity --width=200 --height=100 \
+  				    --title="Стирание" --progress \
+			            --pulsate --text="Подождите, процесс выполняется..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
-     zenity --error \
+     zenity --warning \
 --text="Готово"
  else 
  echo "Микросхема не выбрана"
  zenity --error \
 --text="Микросхема не выбрана"
- fi   
+ fi
  
