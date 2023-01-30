@@ -52,9 +52,17 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
 --entry-text "eeprom.bin")
         if [ -n "$eeprom_model" ]
         then
-        SNANDer -E$eeprom_model -r $filepath/$filename
+        SNANDer -E$eeprom_model -r $filepath/$filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Reading" --progress \
+			            --pulsate --text="Please wait..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -r $filepath/$filename
+        SNANDer -r $filepath/$filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Reading" --progress \
+			            --pulsate --text="Please wait" \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
      if [[ "$action_type" == "Writing" ]]
@@ -64,18 +72,34 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
      filename=$(zenity --file-selection)     
         if [ -n "$eeprom_model" ]
         then
-        SNANDer -E$eeprom_model -w $filename
+        SNANDer -E$eeprom_model -w $filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Writing" --progress \
+			            --pulsate --text="Please wait..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -w $filename
+        SNANDer -w $filename | tee >(zenity --width=200 --height=100 \
+  				    --title="Writing" --progress \
+			            --pulsate --text="Please wait..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
      if [[ "$action_type" == "Erasing" ]]
      then   
         if [ -n "$eeprom_model" ]
         then
-        SNANDer -E$eeprom_model -e
+        SNANDer -E$eeprom_model -e | tee >(zenity --width=200 --height=100 \
+  				    --title="Erasing" --progress \
+			            --pulsate --text="Please wait..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         else
-        SNANDer -e
+        SNANDer -e | tee >(zenity --width=200 --height=100 \
+  				    --title="Erasing" --progress \
+			            --pulsate --text="Please wait..." \
+                                    --auto-kill --auto-close \
+                                    --percentage=10)
         fi
      fi
      zenity --error \
