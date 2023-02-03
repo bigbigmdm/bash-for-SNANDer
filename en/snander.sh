@@ -1,6 +1,10 @@
 #!/bin/bash
 t1="24Cxx - Two-Wire Serial EEPROM"
 t2="93Cxx - MICROWIRE Serial EEPROM"
+ch_dev=$(lsusb | grep "1a86:" -o)
+echo $ch_dev
+if [[ "$ch_dev" == "1a86:" ]]
+then
 epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
 "Выберите тип EEPROM:" --column="Set" --column="EEPROM type"\
  FALSE "24Cxx - Two-Wire Serial EEPROM"\
@@ -109,3 +113,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
  zenity --error \
 --text="The chip is not selected!"
  fi   
+else
+ zenity --error \
+--text="The device CH341A is not found!"
+ fi
