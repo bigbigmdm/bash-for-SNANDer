@@ -30,7 +30,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
      if [[ "$epromtype" == "93Cxx - MICROWIRE Serial EEPROM" ]]
      then
      eeprom_model=$(zenity --height=300 --width=300 --list --radiolist --text \
-"24Cxx - Two-Wire Serial EEPROM:" --column="Set" --column="IC model"\
+"93Cxx - Microwire EEPROM:" --column="Set" --column="IC model"\
  TRUE "93c06"\
  FALSE "93c16"\
  FALSE "93c46"\
