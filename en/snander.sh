@@ -6,7 +6,7 @@ echo $ch_dev
 if [[ "$ch_dev" == "1a86:" ]]
 then
 epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
-"Выберите тип EEPROM:" --column="Set" --column="EEPROM type"\
+"Please select the EEPROM type:" --column="Set" --column="EEPROM type"\
  FALSE "24Cxx - Two-Wire Serial EEPROM"\
  FALSE "93Cxx - MICROWIRE Serial EEPROM"\
  FALSE "25Cxx - NAND FLASH EEPROM"\
