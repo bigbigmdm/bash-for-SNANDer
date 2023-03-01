@@ -107,7 +107,8 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
         fi
      fi
      zenity --warning \
---text="Готово"
+--text="Готово" \
+--icon-name='applications-electronics'
  else 
  echo "Микросхема не выбрана"
  zenity --error \
