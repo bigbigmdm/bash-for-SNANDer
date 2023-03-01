@@ -5,7 +5,7 @@ ch_dev=$(lsusb | grep "1a86:" -o)
 echo $ch_dev
 if [[ "$ch_dev" == "1a86:" ]]
 then
-epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
+epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
 "Выберите тип EEPROM:" --column="Set" --column="Тип микросхемы"\
  FALSE "24Cxx - Two-Wire Serial EEPROM"\
  FALSE "93Cxx - MICROWIRE Serial EEPROM"\
@@ -15,7 +15,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
  then
      if [[ "$epromtype" == "24Cxx - Two-Wire Serial EEPROM" ]]
      then
-     eeprom_model=$(zenity --height=300 --width=300 --list --radiolist --text \
+     eeprom_model=$(zenity --height=330 --width=320 --list --radiolist --text \
 "24Cxx - Two-Wire Serial EEPROM:" --column="Set" --column="Модель микросхемы"\
  TRUE "24c01"\
  FALSE "24c02"\
@@ -29,7 +29,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
      fi
      if [[ "$epromtype" == "93Cxx - MICROWIRE Serial EEPROM" ]]
      then
-     eeprom_model=$(zenity --height=300 --width=300 --list --radiolist --text \
+     eeprom_model=$(zenity --height=320 --width=320 --list --radiolist --text \
 "93Cxx - Microwire EEPROM:" --column="Set" --column="Модель микросхемы"\
  TRUE "93c06"\
  FALSE "93c16"\
@@ -40,14 +40,14 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
  FALSE "93c86"\
  FALSE "93c96"\ )
      fi
-     action_type=$(zenity --height=340 --width=300 --list --radiolist --text \
+     action_type=$(zenity --height=340 --width=320 --list --radiolist --text \
 "Выберите действие:" --column="Set" --column="Действие"\
  TRUE "Считать"\
  FALSE "Записать"\
  FALSE "Стереть" )
      if [[ "$action_type" == "Считать" ]]
      then
-     zenity --warning --width=300 \
+     zenity --warning --width=320 \
 --text="Выберите каталог для сохранения файла"
      filepath=$(zenity --file-selection --directory)
      filename=$(zenity --entry \
