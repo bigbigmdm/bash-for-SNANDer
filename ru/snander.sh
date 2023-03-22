@@ -48,6 +48,7 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
         manufacture='Производитель: '
         info=$(SNANDer -i)
         man_code=$(echo "$info" | grep 'spi device id:')
+        dev_vcc=$(echo "$info" | grep 'VCC:')
         if [[ $man_code == *"spi device id:"* ]] 
           then
              if [[ $man_code == *"id: 01"* ]]; then man_name="SPANSION"; fi
@@ -73,13 +74,15 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
        info=$(echo "$info" | grep 'Flash:')
        rufirst="Найдена микросхема "
        rusecond="Объем: "
+       ruvcc="Напряжение питания:"
+       dev_vcc=${dev_vcc/'VCC:'/"$ruvcc <b>"}
        ruinfo=${info/'Detected '/"\n$rufirst"}
        ruinfo=${ruinfo/'Flash Size:'/"\n$rusecond"}
        ruinfo=${ruinfo/'[93m'/"<b>"}
        ruinfo=${ruinfo/'[93m'/"<b>"}
        ruinfo=${ruinfo/'[0m'/"</b>"}
        ruinfo=${ruinfo/'[0m'/"</b>"}
-       ruinfo="${ruinfo} \n${manufacture}"   
+       ruinfo="${ruinfo} \n${manufacture}\n${dev_vcc}</b>"   
      fi
      action_type=$(zenity --height=340 --width=320 --list --radiolist --text \
 "Выберите действие:" --column="Set" --column="Действие"\
@@ -159,4 +162,3 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
  zenity --error \
 --text="Программатор CH341A не подключен!"
  fi
-
