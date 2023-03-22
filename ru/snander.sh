@@ -47,6 +47,11 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
         echo "NOR or NAND selected"
         manufacture='Производитель: '
         info=$(SNANDer -i)
+        if [[ $info == *"id: 7f"* ]]
+          then
+          zenity --warning \
+          --text="Пожалуйста подключите адаптер на 1,8 вольт!"
+          fi
         man_code=$(echo "$info" | grep 'spi device id:')
         dev_vcc=$(echo "$info" | grep 'VCC:')
         if [[ $man_code == *"spi device id:"* ]] 
@@ -67,7 +72,7 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
              if [[ $man_code == *"id: c8"* ]]; then man_name="GigaDevice"; fi
              if [[ $man_code == *"id: e0"* ]]; then man_name="PARAGON"; fi
              if [[ $man_code == *"id: ef"* ]]; then man_name="Winbond"; fi   
-             if [[ $man_code == *"id: f8"* ]]; then man_name="Fudan"; fi   
+             if [[ $man_code == *"id: f8"* ]]; then man_name="Fidelix"; fi   
           else  manufacture="Производитель не найден."
        fi;
        manufacture="${manufacture}<b>${man_name}</b>"
