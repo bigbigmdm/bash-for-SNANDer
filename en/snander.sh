@@ -160,6 +160,7 @@ epromtype=$(zenity --height=300 --width=300 --list --radiolist --text \
      fi
      zenity --warning \
 --text="Success"
+--icon-name='applications-electronics' 
  else 
  echo "The chip is not selected!"
  zenity --error \
