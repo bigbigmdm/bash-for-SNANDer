@@ -3,11 +3,11 @@ Name=SNANDer
 Name[ru]=Программатор SNANDer
 Comment=24xx/25xx programming tool for the CH341A USB-programmer
 Comment[ru]=Программатор микросхем 24xx/25xx для CH341A USB-programmer
-Exec=/home/mimi/Документы/SN/snander.sh
+Exec=~/<-==Path to snander.sh ==->/snander.sh
 Type=Application
 Terminal=true
 StartupNotify=true
-Path=/home/mimi/Документы/SN/
-Icon=/home/mimi/Документы/SN/24Cxx_icon64.png
+Path=~/<-==Path to snander.sh ==->
+Icon=~/<-==Path to snander icon ==->/24Cxx_icon64.png
 Encoding=UTF-8
 Categories=Application;Development;
