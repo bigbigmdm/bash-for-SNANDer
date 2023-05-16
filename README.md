@@ -4,7 +4,7 @@ This script is used to create a command to start the SNANDer program with comman
 You can choose EEPROM type, EEprom model and action type - read, write, erase. 
 This script uses zenity X11 dialog box.
 
-https://user-images.githubusercontent.com/75389103/214500731-a7040d8b-f2a4-43d1-97b7-5e40417511f5.mp4
+https://github.com/bigbigmdm/bash-for-SNANDer/assets/75389103/7cb38178-a792-4788-9ad0-1efc4751e08a
 
 
 
