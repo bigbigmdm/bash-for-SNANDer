@@ -62,15 +62,24 @@ epromtype=$(zenity --height=320 --width=320 --list --radiolist --text \
              if [[ $man_code == *"id: 1c"* ]]; then man_name="Eon"; fi
              if [[ $man_code == *"id: 1f"* ]]; then man_name="Atmel"; fi
              if [[ $man_code == *"id: 20"* ]]; then man_name="Micron"; fi
+	     if [[ $man_code == *"id: 37"* ]]; then man_name="AMIC"; fi
+	     if [[ $man_code == *"id: 4a"* ]]; then man_name="EXCELSEMI"; fi
+	     if [[ $man_code == *"id: 51"* ]]; then man_name="GigaDevice"; fi
+	     if [[ $man_code == *"id: 54"* ]]; then man_name="DOUQI"; fi
              if [[ $man_code == *"id: 5e"* ]]; then man_name="Zbit"; fi
              if [[ $man_code == *"id: 68"* ]]; then man_name="Boya"; fi
              if [[ $man_code == *"id: 7f"* ]]; then man_name="ISSI"; fi
              if [[ $man_code == *"id: 85"* ]]; then man_name="PUYA"; fi
+	     if [[ $man_code == *"id: 89"* ]]; then man_name="INTEL"; fi
+	     if [[ $man_code == *"id: 8c"* ]]; then man_name="ESMT"; fi
+	     if [[ $man_code == *"id: 9b"* ]]; then man_name="ATO"; fi
              if [[ $man_code == *"id: 9d"* ]]; then man_name="ISSI"; fi
              if [[ $man_code == *"id: a1"* ]]; then man_name="Fudan"; fi
              if [[ $man_code == *"id: ba"* ]]; then man_name="Zetta"; fi
+	     if [[ $man_code == *"id: bf"* ]]; then man_name="SST"; fi
              if [[ $man_code == *"id: c2"* ]]; then man_name="MXIC (Macronix)"; fi
              if [[ $man_code == *"id: c8"* ]]; then man_name="GigaDevice"; fi
+	     if [[ $man_code == *"id: d5"* ]]; then man_name="NANTRONICS"; fi
              if [[ $man_code == *"id: e0"* ]]; then man_name="PARAGON"; fi
              if [[ $man_code == *"id: ef"* ]]; then man_name="Winbond"; fi   
              if [[ $man_code == *"id: f8"* ]]; then man_name="Fidelix"; fi   
